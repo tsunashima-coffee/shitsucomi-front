@@ -9,3 +9,11 @@ services:
     stdin_open: true
     tty: true
     command: /bin/sh
+  drakov:
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - "./docs:/projects"
+    tty: true
+    command: drakov -f "**/*.md" --public --watch --p 3000
